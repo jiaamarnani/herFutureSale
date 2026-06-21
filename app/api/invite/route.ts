@@ -42,7 +42,9 @@ export async function POST(request: Request) {
   // Use admin client to send invite
   const adminSupabase = createAdminClient()
   const { data, error } = await adminSupabase.auth.admin.inviteUserByEmail(email, {
-    data: { full_name: fullName, cohort }
+    data: { full_name: fullName, cohort },
+    redirectTo: `https://her-future-sale.vercel.app/auth/callback`
+
   })
 
   console.log('INVITE ERROR:', error)
