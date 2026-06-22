@@ -43,7 +43,7 @@ export async function POST(request: Request) {
   const adminSupabase = createAdminClient()
   const { data, error } = await adminSupabase.auth.admin.inviteUserByEmail(email, {
     data: { full_name: fullName, cohort },
-    redirectTo: `https://her-future-sale.vercel.app/auth/callback`
+    redirectTo: `https://her-future-sale.vercel.app/set-password`
 
   })
 
