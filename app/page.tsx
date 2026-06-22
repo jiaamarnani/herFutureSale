@@ -32,6 +32,13 @@ export default function HomePage() {
   }, [])
 
   useEffect(() => {
+  const hash = window.location.hash
+  if (hash.includes('type=invite') || (hash.includes('access_token') && hash.includes('type=invite'))) {
+    router.push('/set-password' + hash)
+  }
+}, [])
+
+  useEffect(() => {
     if (activeModal) {
       document.body.style.overflow = 'hidden'
     } else {
